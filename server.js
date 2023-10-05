@@ -23,6 +23,12 @@ io.on("connection", (socket) => {
       chatRoom = chatRoomManager.createChatRoom(roomId);
     }
 
+    // Check for duplicate username
+    if (chatRoom.hasUser(username)) {
+      socket.emit("username-exists", username);
+      return; // Abort if the username already exists
+    }
+
     user = new User(username, socket);
     chatRoom.addObserver(user);
     socket.join(roomId);
