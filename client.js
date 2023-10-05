@@ -4,6 +4,7 @@ const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
+  terminal: false, // Disable echoing
 });
 
 const socket = socketIo("http://localhost:8000"); // Replace with your server URL
@@ -12,21 +13,42 @@ let username, roomId;
 
 rl.question("Enter your username: ", (name) => {
   username = name;
-  rl.question("Enter chat room ID: ", (id) => {
+  rl.question("To create or join chat room enter chat room ID: ", (id) => {
     roomId = id;
 
     socket.emit("create-or-join-room", roomId, username);
 
     socket.on("room-created", () => {
-      console.log(`Joined room ${roomId}`);
+      const message = `Joined room ${roomId}`;
+      // Get the terminal's width
+      const terminalWidth = process.stdout.columns;
+      // Calculate the number of spaces needed to align the message in between
+      const numSpaces = (terminalWidth/2) - (message.length/2);
+      // Create a string with the calculated number of spaces
+      const padding = " ".repeat(Math.max(numSpaces, 0));
+      console.log(padding + message);
     });
 
     socket.on("user-joined", (user) => {
-      console.log(`${user} joined the room.`);
+      const message = `${user} joined the room.`
+      // Get the terminal's width
+      const terminalWidth = process.stdout.columns;
+      // Calculate the number of spaces needed to align the message in between
+      const numSpaces = (terminalWidth/2) - (message.length/2);
+      // Create a string with the calculated number of spaces
+      const padding = " ".repeat(Math.max(numSpaces, 0));
+      console.log(padding + message);
     });
 
     socket.on("user-left", (user) => {
-      console.log(`${user} left the room.`);
+      const message = `${user} left the room.`;
+      // Get the terminal's width
+      const terminalWidth = process.stdout.columns;
+      // Calculate the number of spaces needed to align the message in between
+      const numSpaces = (terminalWidth/2) - (message.length/2);
+      // Create a string with the calculated number of spaces
+      const padding = " ".repeat(Math.max(numSpaces, 0));
+      console.log(padding + message);
     });
 
     socket.on("message", (data) => {
@@ -49,5 +71,7 @@ rl.question("Enter your username: ", (name) => {
         roomId: roomId,
       });
     });
+
+    // rl.prompt();
   });
 });
