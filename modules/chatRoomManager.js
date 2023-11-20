@@ -1,4 +1,4 @@
-const ChatRoom = require('./chatRoom');
+const ChatRoom = require("./chatRoom");
 
 class ChatRoomManager {
   constructor() {
@@ -18,6 +18,11 @@ class ChatRoomManager {
 
   getChatRoom(roomId) {
     return this.chatRooms.get(roomId);
+  }
+
+  deleteEmptyChatRoom(roomId) {
+    this.chatRooms.delete(roomId);
+    console.log(`ChatRoom ${roomId} has been deleted as it became empty.`);
   }
 }
 

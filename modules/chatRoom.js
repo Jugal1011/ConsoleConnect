@@ -37,6 +37,11 @@ class ChatRoom {
   getChatHistory() {
     return this.messages;
   }
+
+  getUsers() {
+    // Convert Set of users to an array and return
+    return Array.from(this.users);
+  }
 }
 
 module.exports = ChatRoom;
