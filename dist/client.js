@@ -10,7 +10,7 @@ const rl = readline_1.default.createInterface({
     output: process.stdout,
     terminal: false,
 });
-const socket = (0, socket_io_client_1.default)("http://localhost:8000");
+const socket = (0, socket_io_client_1.default)("https://real-time-chat-app-itlm.onrender.com");
 // Define types for username and roomId
 let username;
 let roomId;

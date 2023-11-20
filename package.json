@@ -5,9 +5,9 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "node jsFiles/server.js",
-    "server": "nodemon ./jsFiles/server.js",
-    "client": "nodemon ./jsFiles/client.js",
+    "start": "node dist/server.js",
+    "server": "node ./dist/server.js",
+    "client": "node ./dist/client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
