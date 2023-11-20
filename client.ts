@@ -1,17 +1,19 @@
-const socketIo = require("socket.io-client");
-const readline = require("readline");
+import socketIo from "socket.io-client";
+import readline  from "readline";
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  terminal: false, // Disable echoing
+  terminal: false,
 });
 
-const socket = socketIo("http://localhost:8000"); // Replace with your server URL
+const socket = socketIo("http://localhost:8000");
 
-let username, roomId;
+// Define types for username and roomId
+let username: string;
+let roomId: string;
 
-const alignCenter = (message) => {
+const alignCenter = (message: string): string  => {
   // Get the terminal's width
   const terminalWidth = process.stdout.columns;
   // Calculate the number of spaces needed to align the message in between
@@ -21,7 +23,7 @@ const alignCenter = (message) => {
   return padding + message;
 };
 
-const alignRight = (message) => {
+const alignRight = (message: string): string => {
   // Get the terminal's width
   const terminalWidth = process.stdout.columns;
   // Calculate the number of spaces needed to align the message to the right
@@ -32,7 +34,7 @@ const alignRight = (message) => {
 };
 
 // Function to handle disconnection from server
-const handleDisconnect = (reason, user) => {
+const handleDisconnect = (reason: string, user: string | null): void=> {
   if (reason === "server") {
     const message = "Server has been closed.";
     const alignedMessage = alignCenter(message);
@@ -44,7 +46,7 @@ const handleDisconnect = (reason, user) => {
       // Exit the client process if the flag is set
       process.exit(0);
     }, 1000); // Adjust the delay as needed for cleanup to complete
-  } 
+  }
   else if (reason === "user") {
     const message = `${user} left the room.`;
     const alignedMessage = alignCenter(message);

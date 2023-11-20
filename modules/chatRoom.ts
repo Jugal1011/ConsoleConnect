@@ -1,31 +1,37 @@
-class ChatRoom {
-  constructor(roomId) {
+import User from "./user";
+
+export class ChatRoom {
+  private roomId: string;
+  private users: Set<User>;
+  private messages: any[]; // Define a more specific type for messages if possible
+
+  constructor(roomId: string) {
     this.roomId = roomId;
-    this.users = new Set();
+    this.users = new Set<User>();
     this.messages = [];
   }
 
-  addObserver(observer) {
+  addObserver(observer: User) {
     this.users.add(observer);
   }
 
-  removeObserver(observer) {
+  removeObserver(observer: User) {
     this.users.delete(observer);
   }
 
-  notifyObservers(message) {
+  notifyObservers(message: any) {
     for (const observer of this.users) {
       observer.sendMessage(message);
     }
   }
 
-  broadcast(message) {
+  broadcast(message: any) {
     this.messages.push(message);
     this.notifyObservers(message);
   }
 
   // Check if a user with the given username exists in the chat room
-  hasUser(username) {
+  hasUser(username: string) {
     for (const user of this.users) {
       if (user.username === username) {
         return true; // User with the same username found
@@ -44,4 +50,4 @@ class ChatRoom {
   }
 }
 
-module.exports = ChatRoom;
+// export default ChatRoom;
