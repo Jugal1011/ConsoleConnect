@@ -57,7 +57,7 @@ const handleDisconnect = (reason, user) => {
         // Perform default actions or logic for unknown disconnection reasons
     }
 };
-rl.question("Enter your username: ", (name) => {
+rl.question("Enter your username> ", (name) => {
     username = name;
     rl.question("To create or join chat room enter chat room ID: ", (id) => {
         roomId = id;
@@ -76,7 +76,7 @@ rl.question("Enter your username: ", (name) => {
             handleDisconnect("user", user);
         });
         socket.on("message", (data) => {
-            const message = `[${data.username}] : [${data.input}]`;
+            const message = `[${data.username}] > [${data.input}]`;
             const alignedMessage = alignRight(message);
             console.log(alignedMessage);
         });
@@ -90,7 +90,7 @@ rl.question("Enter your username: ", (name) => {
             handleDisconnect("server", null);
         });
         rl.on("line", (input) => {
-            console.log(`[You] : [${input}]`);
+            console.log(`[You] > [${input}]`);
             socket.emit("send-message", {
                 input: input,
                 username: username,

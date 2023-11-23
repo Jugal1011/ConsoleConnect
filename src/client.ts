@@ -58,7 +58,7 @@ const handleDisconnect = (reason: string, user: string | null): void=> {
   }
 };
 
-rl.question("Enter your username: ", (name) => {
+rl.question("Enter your username> ", (name) => {
   username = name;
   rl.question("To create or join chat room enter chat room ID: ", (id) => {
     roomId = id;
@@ -82,7 +82,7 @@ rl.question("Enter your username: ", (name) => {
     });
 
     socket.on("message", (data) => {
-      const message = `[${data.username}] : [${data.input}]`;
+      const message = `[${data.username}] > [${data.input}]`;
       const alignedMessage = alignRight(message);
       console.log(alignedMessage);
     });
@@ -99,7 +99,7 @@ rl.question("Enter your username: ", (name) => {
     });
 
     rl.on("line", (input) => {
-      console.log(`[You] : [${input}]`);
+      console.log(`[You] > [${input}]`);
       socket.emit("send-message", {
         input: input,
         username: username,
