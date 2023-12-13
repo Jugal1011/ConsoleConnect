@@ -18,8 +18,6 @@
 3. Structural Pattern: Use the Adapter Pattern to allow the system to work with different types of client communication protocols (WebSocket, HTTP, etc.).
 4. OOP: Apply encapsulation, polymorphism, and inheritance effectively.</pre>
 
-<h2>Start The Server</h2>
-<img src="https://github.com/Jugal1011/Real-Time-Chat-App/assets/115832122/a7adde8c-5b77-4fc3-8c11-2ec75ae33c40">
 <h2>Adding Client 1 And Sending Messages</h2>
 <img src="https://github.com/Jugal1011/Real-Time-Chat-App/assets/115832122/26b1afa3-89b0-4e3c-bb52-c53f82b6eb4b">
 <img src="https://github.com/Jugal1011/Real-Time-Chat-App/assets/115832122/f72997b3-0a2d-43d0-a4f9-b6726de25dfd">
