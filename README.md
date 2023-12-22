@@ -47,10 +47,6 @@ Install dependencies
 ```bash
 npm install
 ```
-Start server
-```bash
-npm run server
-```
 Add clients
 ```bash
 npm run client
