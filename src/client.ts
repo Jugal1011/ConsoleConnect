@@ -58,9 +58,13 @@ const handleDisconnect = (reason: string, user: string | null): void=> {
   }
 };
 
-rl.question("Enter your username> ", (name) => {
+
+console.log(alignCenter("✨  Welcome to Console Connect App ✨"));
+console.log(alignCenter("Easy to use console based chat app for creating and joining rooms"));
+console.log(alignCenter("Made With ❤️  By Jugal Soni"));
+rl.question("Enter your username :- ", (name) => {
   username = name;
-  rl.question("To create or join chat room enter chat room ID: ", (id) => {
+  rl.question("To create or join chat room enter chat room ID :- ", (id) => {
     roomId = id;
 
     socket.emit("create-or-join-room", roomId, username);
@@ -82,7 +86,7 @@ rl.question("Enter your username> ", (name) => {
     });
 
     socket.on("message", (data) => {
-      const message = `[${data.username}] > [${data.input}]`;
+      const message = `[${data.username}] -> [${data.input}]`;
       const alignedMessage = alignRight(message);
       console.log(alignedMessage);
     });
@@ -92,6 +96,10 @@ rl.question("Enter your username> ", (name) => {
       const alignedMessage = alignCenter(message);
       console.log(alignedMessage);
       rl.close();
+      setTimeout(() => {
+        // Exit the client process if the flag is set
+        process.exit(0);
+      }, 1000);
     });
 
     socket.on("server-stopping", () => {
@@ -99,7 +107,7 @@ rl.question("Enter your username> ", (name) => {
     });
 
     rl.on("line", (input) => {
-      console.log(`[You] > [${input}]`);
+      console.log(`[You] -> [${input}]`);
       socket.emit("send-message", {
         input: input,
         username: username,
