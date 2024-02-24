@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node .dist/server.js",
     "server": "node ./dist/server.js",
-    "client": "node ./dist/client.js",
+    "client": "node ./dist/client.js"
   },
   "author": "",
   "license": "ISC",
