@@ -1,6 +1,6 @@
  <div align='center'>
 
-<h1>🚀 Real-Time-Chat-App ✨</h1>
+<h1>🚀 Console-Connect-App ✨</h1>
 <pre>Problem Statement: 
      Create a simple real-time chat application where users can join different chat rooms or create their own chat rooms. 
      Users should be able to send and receive messages in real-time. </pre>
