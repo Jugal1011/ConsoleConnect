@@ -40,7 +40,7 @@
 
 Clone the project
 ```bash
-git clone https://github.com/Jugal1011/Real-Time-Chat-App.git
+git clone https://github.com/Jugal1011/ConsoleConnect-App.git
 ```
 Pull docker image from dockerhub
 ```bash
