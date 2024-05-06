@@ -39,9 +39,12 @@
 ### :running: Run Locally
 
 Clone the project
-
 ```bash
 git clone https://github.com/Jugal1011/Real-Time-Chat-App.git
+```
+Pull docker image from dockerhub
+```bash
+docker pull jugal1011/console_connect_app:v3.0
 ```
 Install dependencies
 ```bash
