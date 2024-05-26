@@ -46,11 +46,7 @@ Pull docker image from dockerhub
 ```bash
 docker pull jugal1011/console_connect_app:v3.0
 ```
-Install dependencies
+Running the docker image
 ```bash
-npm install
-```
-Add clients
-```bash
-npm run client
+docker run -it jugal1011/console_connect_app:v3.0
 ```
